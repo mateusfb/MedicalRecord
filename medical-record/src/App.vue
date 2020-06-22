@@ -1,60 +1,48 @@
 <template>
   <v-app>
     <v-app-bar
+      color="#0081a7" 
       app
-      color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+      <v-toolbar-title>Prontuários</v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-text-field
+        name="medical-record"
+        label="Número do Prontuário"
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+      ></v-text-field>
     </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <Attendances v-bind:parentAttendances="attendances_list" />
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Attendances from "./components/Attendances.vue" 
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    Attendances
   },
 
   data: () => ({
-    //
+    attendancesList : [
+        {
+          number : "123400",
+          entryDate : "19-05-2020",
+          dischargeDate : "19-06-2020",
+        },
+        {
+          number : "220029",
+          entryDate : "07-01-2019",
+          dischargeDate : "15-01-2019",
+        },
+      ],
   }),
 };
 </script>
