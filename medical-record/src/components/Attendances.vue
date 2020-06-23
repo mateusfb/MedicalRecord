@@ -1,7 +1,8 @@
 <template>
   <v-container 
-    class="mt-16 pa-16" 
+    class="mt-16 fill-height"
     fluid
+    color="#f9fbf2"
   >
     <v-row 
       align="center"
@@ -14,12 +15,16 @@
         <v-simple-table>
           <template v-slot:default>  
             <thead>
-              <th class="text-left">Atendimento</th>
-              <th class="text-left">Internação</th>
-              <th class="text-left">Alta</th>
+              <tr>
+                <th class="text-left">Atendimento</th>
+                <th class="text-left">Internação</th>
+                <th class="text-left">Alta</th>
+              </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in attendancesList" :key="index">
+              <tr v-for="(item, index) in parentAttendances" :key="index"
+                @click="algumacoisa"
+              >
                 <td>{{ item.number }}</td>
                 <td>{{ item.entryDate }}</td>
                 <td>{{ item.dischargeDate }}</td>
@@ -37,11 +42,18 @@
     name: 'Attendances',
 
     props: {
-      parentAttendances : Object,
+      parentAttendances: {
+        type: Object
+      }
     },
 
     data: () => ({
-      attendancesList : this.parentAttendances
     }),
+
+    methods: {
+      algumacoisa(){
+        console.log("Isso")
+      }
+    }
   }
 </script>

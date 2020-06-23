@@ -16,18 +16,20 @@
         prepend-inner-icon="mdi-magnify"
       ></v-text-field>
     </v-app-bar>
-    <Attendances v-bind:parentAttendances="attendances_list" />
+    <!--
+    <Attendances :parentAttendances="attendancesList" />
+    -->
   </v-app>
 </template>
 
 <script>
-import Attendances from "./components/Attendances.vue" 
+//import Attendances from "./components/Attendances.vue" 
 
 export default {
   name: 'App',
 
   components: {
-    Attendances
+    //Attendances
   },
 
   data: () => ({
