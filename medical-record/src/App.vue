@@ -1,7 +1,9 @@
 <template>
-  <v-app>
+  <v-app style="
+    background: linear-gradient(to top, #f1faee, #a8dadc, #457b9d);
+  ">
     <v-app-bar
-      color="#0081a7" 
+      color="#1d3557" 
       app
       dark
     >
@@ -19,17 +21,20 @@
     <!--
     <Attendances :parentAttendances="attendancesList" />
     -->
+    <MedicalRecord />
   </v-app>
 </template>
 
 <script>
 //import Attendances from "./components/Attendances.vue" 
+import MedicalRecord from "./components/MedicalRecord.vue"
 
 export default {
   name: 'App',
 
   components: {
-    //Attendances
+    //Attendances,
+    MedicalRecord,   
   },
 
   data: () => ({

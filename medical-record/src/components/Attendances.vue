@@ -2,10 +2,8 @@
   <v-container 
     class="mt-16 fill-height"
     fluid
-    color="#f9fbf2"
   >
     <v-row 
-      align="center"
       justify="center"
     >
       <v-card 
