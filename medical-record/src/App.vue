@@ -12,6 +12,7 @@
       <v-spacer></v-spacer>
       <v-text-field
         name="medical-record"
+        v-model="selectedMedicalRecord"
         label="Número do Prontuário"
         flat
         solo-inverted
@@ -42,19 +43,48 @@ export default {
   },
 
   data: () => ({
-    attendancesList : [
-        {
-          number : "123400",
-          entryDate : "19-05-2020",
-          dischargeDate : "19-06-2020",
-        },
-        {
-          number : "220029",
-          entryDate : "07-01-2019",
-          dischargeDate : "15-01-2019",
-        },
-      ],
-      currentComponent : null,
+    selectedMedicalRecord: null,
+
+    attendancesList : null,
+
+    currentComponent : null,
+
+    medicalRecords : {
+      "000000" : {
+        pacientName: "Fulana de tal",
+        pacientBirthDate: "02-02-1990",
+        attendances : [
+            {
+              number : "123400",
+              entryDate : "19-05-2020",
+              dischargeDate : "19-06-2020",
+              bloodType: "O",
+              rhFactor: "P",
+              sterilization: "S",
+              gestation: 3,
+              chuildbirth: 1,
+              prenatal: "S",
+              multipleDelivery: "N",
+              GAperTime : "27s 6d",
+              GAperUSG : "29s 2d"
+            },
+            {
+              number : "220029",
+              entryDate : "07-01-2019",
+              dischargeDate : "15-01-2019",
+              bloodType: "O",
+              rhFactor: "P",
+              sterilization: "S",
+              gestation: 3,
+              chuildbirth: 1,
+              prenatal: "S",
+              multipleDelivery: "N",
+              GAperTime : "27s 6d",
+              GAperUSG : "29s 2d"
+            },
+          ]
+      }
+    }
   }),
 
   methods : {
@@ -65,6 +95,7 @@ export default {
 
     searchMedicalRecord() {
       this.currentComponent = Attendances
+      this.attendancesList = this.medicalRecords[this.selectedMedicalRecord].attendances
     }
   }
 };
