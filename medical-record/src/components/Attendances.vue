@@ -21,7 +21,7 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in parentAttendances" :key="index"
-                @click="algumacoisa"
+                @click="setAttendance"
               >
                 <td>{{ item.number }}</td>
                 <td>{{ item.entryDate }}</td>
@@ -49,8 +49,8 @@
     }),
 
     methods: {
-      algumacoisa(){
-        console.log("Isso")
+      setAttendance(){
+        this.$emit('set-attendance')
       }
     }
   }
