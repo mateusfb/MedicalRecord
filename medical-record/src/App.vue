@@ -18,13 +18,15 @@
         solo-inverted
         hide-details
         prepend-inner-icon="mdi-magnify"
-        @keyup.enter="searchMedicalRecord"
+        @keyup.enter="setMedicalRecord"
       ></v-text-field>
     </v-app-bar>
     <component v-if="currentComponent != null"
-      :parentAttendances="attendancesList" 
+      :attendance="currentAttendance"
+      :medicalRecord="medicalRecords[selectedMedicalRecord]"
       :is="currentComponent"
       @set-attendance="setAttendance"
+      @change-component="changeComponent"
     >
     </component>
   </v-app>
@@ -44,11 +46,8 @@ export default {
 
   data: () => ({
     selectedMedicalRecord: null,
-
-    attendancesList : null,
-
     currentComponent : null,
-
+    currentAttendance : null,
     medicalRecords : {
       "000000" : {
         pacientName: "Fulana de tal",
@@ -61,8 +60,9 @@ export default {
               bloodType: "O",
               rhFactor: "P",
               sterilization: "S",
-              gestation: 3,
-              chuildbirth: 1,
+              gestation: 4,
+              childBirth: 1,
+              abortion: 1,
               prenatal: "S",
               multipleDelivery: "N",
               GAperTime : "27s 6d",
@@ -76,7 +76,8 @@ export default {
               rhFactor: "P",
               sterilization: "S",
               gestation: 3,
-              chuildbirth: 1,
+              childBirth: 1,
+              abortion : 0,
               prenatal: "S",
               multipleDelivery: "N",
               GAperTime : "27s 6d",
@@ -88,14 +89,22 @@ export default {
   }),
 
   methods : {
-    setAttendance() {
-      this.currentComponent = MedicalRecord
-      console.log()
+    changeComponent(){
+      this.currentComponent == MedicalRecord ? (this.currentComponent = Attendances) : (this.currentComponent = MedicalRecord) 
     },
 
-    searchMedicalRecord() {
-      this.currentComponent = Attendances
-      this.attendancesList = this.medicalRecords[this.selectedMedicalRecord].attendances
+    setAttendance(attendance) {
+      this.currentComponent = MedicalRecord
+      this.currentAttendance = attendance
+    },
+
+    setMedicalRecord() {
+      if(Object.prototype.hasOwnProperty.call(this.medicalRecords, this.selectedMedicalRecord)){
+        this.currentComponent = Attendances
+        this.attendancesList = this.medicalRecords[this.selectedMedicalRecord].attendances
+      } else {
+        alert("Insira um valor válido!")
+      }
     }
   }
 };

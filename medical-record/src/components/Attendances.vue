@@ -10,6 +10,19 @@
         class="pa-16"
         width="800px"
       >
+        <v-row no-gutters>
+          <v-col cols="6">
+            <p><b>Paciente:</b> {{medicalRecord.pacientName}}</p>
+          </v-col>
+          <v-col cols="6">
+            <p><b>Nascimento:</b> {{medicalRecord.pacientBirthDate}}</p>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            <p><b>Resultado</b></p>
+          </v-col>
+        </v-row>
         <v-simple-table>
           <template v-slot:default>  
             <thead>
@@ -20,12 +33,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in parentAttendances" :key="index"
-                @click="setAttendance"
+              <tr v-for="attendance in medicalRecord.attendances" :key="attendance.number"
+                @click="setAttendance(attendance)"
               >
-                <td>{{ item.number }}</td>
-                <td>{{ item.entryDate }}</td>
-                <td>{{ item.dischargeDate }}</td>
+                <td>{{ attendance.number }}</td>
+                <td>{{ attendance.entryDate }}</td>
+                <td>{{ attendance.dischargeDate }}</td>
               </tr>
             </tbody>
           </template>
@@ -40,7 +53,7 @@
     name: 'Attendances',
 
     props: {
-      parentAttendances: {
+      medicalRecord: {
         type: Object
       }
     },
@@ -49,8 +62,8 @@
     }),
 
     methods: {
-      setAttendance(){
-        this.$emit('set-attendance')
+      setAttendance(attendance){
+        this.$emit('set-attendance', attendance)
       }
     }
   }
