@@ -23,7 +23,7 @@
     </v-app-bar>
     <component v-if="currentComponent != null"
       :attendance="currentAttendance"
-      :medicalRecord="medicalRecords[selectedMedicalRecord]"
+      :medicalRecord="currentMedicalRecord"
       :is="currentComponent"
       @set-attendance="setAttendance"
       @change-component="changeComponent"
@@ -35,6 +35,7 @@
 <script>
 import Attendances from "./components/Attendances.vue" 
 import MedicalRecord from "./components/MedicalRecord.vue"
+import data from "./assets/data.json"
 
 export default {
   name: 'App',
@@ -46,46 +47,10 @@ export default {
 
   data: () => ({
     selectedMedicalRecord: null,
+    currentMedicalRecord: null,
     currentComponent : null,
     currentAttendance : null,
-    medicalRecords : {
-      "000000" : {
-        pacientName: "Fulana de tal",
-        pacientBirthDate: "02-02-1990",
-        attendances : [
-            {
-              number : "123400",
-              entryDate : "19-05-2020",
-              dischargeDate : "19-06-2020",
-              bloodType: "O",
-              rhFactor: "P",
-              sterilization: "S",
-              gestation: 4,
-              childBirth: 1,
-              abortion: 1,
-              prenatal: "S",
-              multipleDelivery: "N",
-              GAperTime : "27s 6d",
-              GAperUSG : "29s 2d"
-            },
-            {
-              number : "220029",
-              entryDate : "07-01-2019",
-              dischargeDate : "15-01-2019",
-              bloodType: "O",
-              rhFactor: "P",
-              sterilization: "S",
-              gestation: 3,
-              childBirth: 1,
-              abortion : 0,
-              prenatal: "S",
-              multipleDelivery: "N",
-              GAperTime : "27s 6d",
-              GAperUSG : "29s 2d"
-            },
-          ]
-      }
-    }
+    medicalRecords : data,
   }),
 
   methods : {
@@ -101,6 +66,7 @@ export default {
     setMedicalRecord() {
       if(Object.prototype.hasOwnProperty.call(this.medicalRecords, this.selectedMedicalRecord)){
         this.currentComponent = Attendances
+        this.currentMedicalRecord = this.medicalRecords[this.selectedMedicalRecord]
         this.attendancesList = this.medicalRecords[this.selectedMedicalRecord].attendances
       } else {
         alert("Insira um valor válido!")
