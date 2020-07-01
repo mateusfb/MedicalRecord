@@ -88,13 +88,18 @@
                         </v-col>
                         <v-col cols="4">
                             <v-card outlined tile class="pl-2 pt-2">     
-                                <p><b>DUM:</b> {{attendance.GAperUSG}}</p>                     
+                                <p><b>DUM:</b> {{attendance.DUM}}</p>                     
                             </v-card>                     
                         </v-col>
                         <v-col cols="4">
                             <v-card outlined tile class="pl-2 pt-2">     
-                                <p><b>IG por USG:</b> 29s 2d</p>                     
+                                <p><b>IG por USG:</b> {{attendance.GAperUSG}}</p>                     
                             </v-card>                 
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12">
+                            <p><b>Encaminhamento:</b> {{attendance.referral.name}}</p>
                         </v-col>
                     </v-row>
                     <v-row>
@@ -107,6 +112,12 @@
                                         <th class="text-left">Negação</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="denial in attendance.denials" :key="denial.id">
+                                        <th class="text-left">{{denial.id}}</th>
+                                        <th class="text-left">{{denial.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Alergia</h5>
@@ -117,6 +128,12 @@
                                         <th class="text-left">Alergia</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="allergy in attendance.allergies" :key="allergy.id">
+                                        <th class="text-left">{{allergy.id}}</th>
+                                        <th class="text-left">{{allergy.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Medicamento administrado</h5>
@@ -127,6 +144,12 @@
                                         <th class="text-left">Medicamento</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="medicine in attendance.medicines.administered" :key="medicine.id">
+                                        <th class="text-left">{{medicine.id}}</th>
+                                        <th class="text-left">{{medicine.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Conduta</h5>
@@ -137,6 +160,12 @@
                                         <th class="text-left">Conduta</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="conduct in attendance.conducts" :key="conduct.id">
+                                        <th class="text-left">{{conduct.id}}</th>
+                                        <th class="text-left">{{conduct.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                         </v-col>
                         <v-col cols="6">
@@ -148,6 +177,12 @@
                                         <th class="text-left">Sintomas</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="symptom in attendance.symptoms" :key="symptom.id">
+                                        <th class="text-left">{{symptom.id}}</th>
+                                        <th class="text-left">{{symptom.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Medicamento em uso</h5>
@@ -158,6 +193,12 @@
                                         <th class="text-left">Medicamento</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="medicine in attendance.medicines.inUse" :key="medicine.id">
+                                        <th class="text-left">{{medicine.id}}</th>
+                                        <th class="text-left">{{medicine.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Medicamento prescrito</h5>
@@ -168,6 +209,12 @@
                                         <th class="text-left">Medicamento</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="medicine in attendance.medicines.prescribed" :key="medicine.id">
+                                        <th class="text-left">{{medicine.id}}</th>
+                                        <th class="text-left">{{medicine.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                             <p></p>
                             <h5>Droga</h5>
@@ -178,6 +225,12 @@
                                         <th class="text-left">Droga</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="drugs in attendance.drugss" :key="drugs.id">
+                                        <th class="text-left">{{drugs.id}}</th>
+                                        <th class="text-left">{{drugs.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                         </v-col>
                     </v-row>
@@ -191,6 +244,12 @@
                                         <th class="text-left">Comorbidade/Doença</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="disease in attendance.diseases" :key="disease.id">
+                                        <th class="text-left">{{disease.id}}</th>
+                                        <th class="text-left">{{disease.name}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                         </v-col>
                     </v-row>
@@ -205,6 +264,23 @@
                                         <th class="text-left">Resultado</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr v-for="exam in attendance.exams.numeric" :key="exam.id">
+                                        <th class="text-left">{{exam.id}}</th>
+                                        <th class="text-left">{{exam.name}}</th>
+                                        <th class="text-left">{{exam.result}}</th>
+                                    </tr>
+                                    <tr v-for="exam in attendance.exams.choice" :key="exam.id">
+                                        <th class="text-left">{{exam.id}}</th>
+                                        <th class="text-left">{{exam.name}}</th>
+                                        <th class="text-left">{{exam.result}}</th>
+                                    </tr>
+                                    <tr v-for="exam in attendance.exams.charbool" :key="exam.id">
+                                        <th class="text-left">{{exam.id}}</th>
+                                        <th class="text-left">{{exam.name}}</th>
+                                        <th class="text-left">{{exam.result}}</th>
+                                    </tr>
+                                </tbody>
                             </v-simple-table>
                         </v-col>
                     </v-row>

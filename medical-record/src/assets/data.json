@@ -1,76 +1,364 @@
 {
-    "000000": {
-      "pacientName": "Fulana de tal",
-      "pacientBirthDate": "02-02-1990",
-      "attendances": [
-        {
-          "number": "123400",
-          "entryDate": "19-05-2020",
-          "dischargeDate": "19-06-2020",
-          "bloodType": "O",
-          "rhFactor": "P",
-          "sterilization": "S",
-          "gestation": 4,
-          "childBirth": 1,
-          "abortion": 1,
-          "prenatal": "S",
-          "multipleDelivery": "N",
-          "GAperTime": "27s 6d",
-          "GAperUSG": "29s 2d"
-        },
-        {
-          "number": "220029",
-          "entryDate": "07-01-2019",
-          "dischargeDate": "15-01-2019",
-          "bloodType": "O",
-          "rhFactor": "P",
-          "sterilization": "S",
-          "gestation": 3,
-          "childBirth": 1,
-          "abortion": 0,
-          "prenatal": "S",
-          "multipleDelivery": "N",
-          "GAperTime": "27s 6d",
-          "GAperUSG": "29s 2d"
-        }
-        
-      ]
-    },
-    "111111": {
-        "pacientName": "Sicrana da silva",
-        "pacientBirthDate": "06-06-1966",
-        "attendances": [
-          {
-            "number": "123400",
-            "entryDate": "19-05-2020",
-            "dischargeDate": "19-06-2020",
-            "bloodType": "O",
-            "rhFactor": "P",
-            "sterilization": "S",
-            "gestation": 4,
-            "childBirth": 1,
-            "abortion": 1,
-            "prenatal": "S",
-            "multipleDelivery": "N",
-            "GAperTime": "27s 6d",
-            "GAperUSG": "29s 2d"
-          },
-          {
-            "number": "220029",
-            "entryDate": "07-01-2019",
-            "dischargeDate": "15-01-2019",
-            "bloodType": "O",
-            "rhFactor": "P",
-            "sterilization": "S",
-            "gestation": 3,
-            "childBirth": 1,
-            "abortion": 0,
-            "prenatal": "S",
-            "multipleDelivery": "N",
-            "GAperTime": "27s 6d",
-            "GAperUSG": "29s 2d"
-          }
-          
-        ]
-      }
-  }
+	"000000": {
+		"pacientName": "ELMA",
+		"pacientBirthDate": "06-04-1998",
+		"attendances": [
+			{
+				"number": "426773",
+				"entryDate": "27-09-2018",
+				"dischargeDate": "09-10-2018",
+				"bloodType": "O",
+				"rhFactor": "P",
+				"sterilization": "N",
+				"gestation": 2,
+				"childBirth": 1,
+				"abortion": 0,
+				"prenatal": "N",
+				"multipleDelivery": "N",
+				"GAperTime": "27s 2d",
+				"DUM": "20-03-2018",
+				"GAperUSG": "",
+				"referral": {
+					"id": 153,
+					"name": "sao jose do mipibu"
+				},
+				"allergies": [
+					{
+						"id": 60,
+						"name": "ceftriaxona"
+					}
+				],
+				"medicines": {
+					"inUse": [
+						{
+							"id": 157,
+							"name": "insulina regular"
+						}
+					],
+					"administered": [],
+					"prescribed": []
+				},
+				"denials": [],
+				"symptoms": [
+					{
+						"id": 157,
+						"name": "plaquetopenia"
+					}
+				],
+				"conducts": [
+					{
+						"id": 2,
+						"name": "antibioticoterapia"
+					},
+					{
+						"id": 27,
+						"name": "exame laboratorial"
+					},
+					{
+						"id": 33,
+						"name": "internacao"
+					},
+					{
+						"id": 76,
+						"name": "ultrassonografia obstetrica"
+					},
+					{
+						"id": 78,
+						"name": "ultrassonografia de abdomen"
+					},
+					{
+						"id": 82,
+						"name": "urocultura"
+					},
+					{
+						"id": 92,
+						"name": "hemocultura"
+					}
+				],
+				"drugs":[],
+				"diseases": [],
+				"exams": {
+					"numeric": [
+						{
+							"id": 115,
+							"name": "ureia",
+							"result": 14
+						},
+						{
+							"id": 116,
+							"name": "pcr",
+							"result": 6.3
+						},
+						{
+							"id": 117,
+							"name": "ldl",
+							"result": 344
+						},
+						{
+							"id": 118,
+							"name": "hdl",
+							"result": 27
+						},
+						{
+							"id": 119,
+							"name": "glicose",
+							"result": 107
+						},
+						{
+							"id": 120,
+							"name": "creatinina",
+							"result": 0.3
+						},
+						{
+							"id": 121,
+							"name": "acido urico",
+							"result": 9
+						},
+						{
+							"id": 122,
+							"name": "h linfocito",
+							"result": 12
+						},
+						{
+							"id": 123,
+							"name": "h leucocito",
+							"result": 30.6
+						},
+						{
+							"id": 124,
+							"name": "h hematocito",
+							"result": 31
+						},
+						{
+							"id": 125,
+							"name": "h hemoglobina",
+							"result": 11.5
+						},
+						{
+							"id": 126,
+							"name": "ausculta cardiaca fetal",
+							"result": 0
+						},
+						{
+							"id": 127,
+							"name": "altura uterina",
+							"result": 22
+						},
+						{
+							"id": 128,
+							"name": "temperatura",
+							"result": 36.1
+						},
+						{
+							"id": 129,
+							"name": "pressao arterial",
+							"result": 100
+						},
+						{
+							"id": 129,
+							"name": "pressao arterial",
+							"result": 150
+						}
+					],
+					"choice": [
+						{
+							"id": 132,
+							"name": "abdomen",
+							"result": "doloroso"
+						},
+						{
+							"id": 132,
+							"name": "abdomen",
+							"result": "gravidico"
+						},
+						{
+							"id": 132,
+							"name": "abdomen",
+							"result": "normotimpanico"
+						},
+						{
+							"id": 130,
+							"name": "apresentacao",
+							"result": "alto"
+						},
+						{
+							"id": 131,
+							"name": "estado",
+							"result": "bom estado geral"
+						},
+						{
+							"id": 131,
+							"name": "estado",
+							"result": "hidratada"
+						},
+						{
+							"id": 131,
+							"name": "estado",
+							"result": "normocorada"
+						}
+					],
+					"charbool": []
+				}
+			}
+		]
+	},
+	"111111": {
+		"pacientName": "KALINE",
+		"pacientBirthDate": "07-02-1992",
+		"attendances": [
+			{
+				"number": "326545",
+				"entryDate": "31-12-2017",
+				"dischargeDate": "05-01-2018",
+				"bloodType": "NI",
+				"rhFactor": "A",
+				"sterilization": "N",
+				"gestation": 3,
+				"childBirth": 1,
+				"abortion": 1,
+				"prenatal": "N",
+				"multipleDelivery": "N",
+				"GAperTime": "",
+				"DUM": "",
+				"GAperUSG": "41s 4d",
+				"referral": {
+					"id": 0,
+					"name": ""
+				},
+				"allergies": [],
+				"medicines": {
+					"inUse": [
+						{
+							"id": 189,
+							"name": "metildopa"
+						},
+						{
+							"id": 210,
+							"name": "nifedipino"
+						}
+					],
+					"administered": [
+						{
+							"id": 270,
+							"name": "sulfato de magnesio"
+						}
+					],
+					"prescribed": []
+				},
+				"denials": [
+					{
+						"id": 2,
+						"name": "alergia medicamentosa"
+					}
+				],
+				"symptoms": [
+					{
+						"id": 189,
+						"name": "taquipnea"
+					},
+					{
+						"id": 210,
+						"name": "hematoma"
+					}
+				],
+				"conducts": [
+					{
+						"id": 5,
+						"name": "assistencia ao parto"
+					},
+					{
+						"id": 7,
+						"name": "cardiotocografia"
+					},
+					{
+						"id": 54,
+						"name": "rotina para doenca hipertensiva especifica da gravidez"
+					}
+				],
+				"drugs": [],
+				"diseases": [
+					{
+						"id": 67,
+						"name": "hipertensao arterial cronica"
+					},
+					{
+						"id": 68,
+						"name": "hipertensao arterial sistemica"
+					},
+					{
+						"id": 144,
+						"name": "eminencia de eclampsia"
+					}
+				],
+				"exams": {
+					"numeric": [
+						{
+							"id": 107,
+							"name": "toque vaginal",
+							"result": 39
+						},
+						{
+							"id": 110,
+							"name": "dinamica uterina",
+							"result": 0
+						},
+						{
+							"id": 111,
+							"name": "altura uterina",
+							"result": 35
+						},
+						{
+							"id": 112,
+							"name": "ausculta cardiaca fetal",
+							"result": 146
+						},
+						{
+							"id": 113,
+							"name": "temperatura",
+							"result": 36.5
+						},
+						{
+							"id": 114,
+							"name": "pressao arterial",
+							"result": 80
+						},
+						{
+							"id": 114,
+							"name": "pressao arterial",
+							"result": 120
+						}
+					],
+					"choice": [
+						{
+							"id": 108,
+							"name": "toque vaginal",
+							"result": "bolsa integra"
+						},
+						{
+							"id": 108,
+							"name": "toque vaginal",
+							"result": "grosso"
+						},
+						{
+							"id": 108,
+							"name": "toque vaginal",
+							"result": "pervio"
+						},
+						{
+							"id": 108,
+							"name": "toque vaginal",
+							"result": "posterior"
+						}
+					],
+					"charbool": [
+						{
+							"id": 109,
+							"name": "tonus uterino",
+							"result": "normal"
+						}
+					]
+				}
+			}
+		]
+	}
+}
