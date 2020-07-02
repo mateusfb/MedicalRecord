@@ -46,24 +46,28 @@ export default {
   },
 
   data: () => ({
-    selectedMedicalRecord: null,
-    currentMedicalRecord: null,
-    currentComponent : null,
-    currentAttendance : null,
-    medicalRecords : data,
+    selectedMedicalRecord: null, //Número de prontuário informado na caixa de pesquisa 
+    currentMedicalRecord: null, //Prontuário selecionado
+    currentComponent : null, //Component sendo renderizado (MedicalRecord ou Attendance)
+    currentAttendance : null, //Atendimento selecionado
+    medicalRecords : data, //Dados de prontuário do JSON
   }),
 
   methods : {
+    //Alterna entre os components
     changeComponent(){
       this.currentComponent == MedicalRecord ? (this.currentComponent = Attendances) : (this.currentComponent = MedicalRecord) 
     },
 
+    //Seta o component renderizado como MedicalRecord e define o atendimento selecionado
     setAttendance(attendance) {
       this.currentComponent = MedicalRecord
       this.currentAttendance = attendance
     },
 
+    //Seta o component renderizado como Attendances e define o prontuario selecionado
     setMedicalRecord() {
+      //Checando se o número de prontuário do campo de pesquisa pertence ao dicionario de prontuários
       if(Object.prototype.hasOwnProperty.call(this.medicalRecords, this.selectedMedicalRecord)){
         this.currentComponent = Attendances
         this.currentMedicalRecord = this.medicalRecords[this.selectedMedicalRecord]

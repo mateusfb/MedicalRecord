@@ -308,6 +308,7 @@
         }),
     
         methods: {
+            //emitindo para App que é necessário mudar o component renderizado
             changeComponent(){
                 this.$emit("change-component")
             }

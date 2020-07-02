@@ -1,24 +1,16 @@
 # medical-record
 
-## Project setup
+## Instação do Vue CLI
+
+https://cli.vuejs.org/guide/installation.html
+
+## Setup do projeto
+Na pasta medical record, execute:
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compilando o projeto para desenvolvimento
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

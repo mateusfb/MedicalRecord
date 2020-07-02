@@ -62,6 +62,7 @@
     }),
 
     methods: {
+      //emitindo para App o atendimento escolhido pelo usuário
       setAttendance(attendance){
         this.$emit('set-attendance', attendance)
       }
